@@ -1,0 +1,25 @@
+<div class="author">
+    <h1 class="author_heading">Hi, I am Sanket.</h1>
+    <p class="author_body">Learning enthusiast</p>
+</div>
+
+<img src="https://cdn.pixabay.com/photo/2015/05/31/10/55/man-791049_960_720.jpg" alt="Person reading a book near a hill" class="image" width="800" height="400">
+
+<section class="articles">
+    <h2 class="articles_heading">Latest Posts</h2>
+
+    <ul class="article-ul">
+       <% data.forEach(post => { %>
+        <li>
+            <a href="/post/<%= post._id %>">
+                <span><%=post.title%></span>
+                <span class="article-list_date" style="width:auto"><%= post.createdAt.toDateString() %></span>
+            </a>
+        </li>       
+       <% }) %>
+    </ul>
+    
+    <% if (nextPage!==null) { %>
+    <a href="/?page=<%= nextPage %>" class="pages">&lt; View Older Posts</a>
+    <% } %>
+</section>
